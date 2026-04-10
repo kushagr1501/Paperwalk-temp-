@@ -15,7 +15,7 @@
 ### BUG 3 — Stage 0 fallthrough (FIXED)
 **File:** `src/components/paper/PaperJourneyShell.tsx`
 **Issue:** When `ingestionStep === "done"` but `store.currentStage === 0` (e.g., Zustand store resets while paper metadata is cached), the component rendered `null` — blank screen.
-**Fix:** Added `if (store.currentStage === 0) store.setCurrentStage(1)` in the early-return path where cached data is detected.
+**Fix:** Added `if (store.********curren**tS**ta**ge** === 0) store.setCurrentStage(1)` in the early-return path where cached data is detected.
 
 ### BUG 4 — MCQ answer comparison (FIXED)
 **File:** `src/components/paper/SelfTestQuiz.tsx`
