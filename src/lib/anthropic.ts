@@ -110,11 +110,11 @@ export async function callLLMJSON<T>(
   const text = await streamLLMResponse(messages, systemPrompt, () => {});
   
   // Clean up any markdown code blocks
-  let cleanText = text.replace(/```json/g, "").replace(/```/g, "").trim();
+  const cleanText = text.replace(/```json/g, "").replace(/```/g, "").trim();
 
   try {
     return JSON.parse(cleanText);
-  } catch (err) {
+  } catch {
     // If parsing fails, try to extract just the JSON part
     const jsonMatch = cleanText.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
