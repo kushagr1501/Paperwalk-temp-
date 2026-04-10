@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #faf8f4;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f5f2ed;
+  --border: #e0dbd3;
+  --accent: #b05a3a;
+  --accent-dim: #c7856d;
+  --text-primary: #1a1a1a;
+  --text-muted: #888580;
+  --success: #3a7d44;
+  --warning: #a07028;
+  --error: #b03a3a;
+  --math-highlight: #fdf6e3;
+  --code-bg: #f5f2ed;
+  --term-underline: #b05a3a;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: "Newsreader", Georgia, serif;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+/* Hidden scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Term tooltip styling */
+.term-tooltip {
+  border-bottom: 1.5px dotted var(--term-underline);
+  cursor: help;
+  position: relative;
+}
+
+/* Glossary panel slide */
+.glossary-panel {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.glossary-panel.open {
+  transform: translateX(0);
+}
+
+/* Streaming text animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Selection highlight — warm */
+::selection {
+  background-color: #f4ebe6;
+  color: #1a1a1a;
+}
+
+/* Horizontal rule — thin, elegant */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* MathJax overrides for light theme */
+mjx-container {
+  color: #1a1a1a !important;
+}
